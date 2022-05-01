@@ -2,8 +2,10 @@ import "./auth.css";
 import { useState } from "react";
 import { useAuth } from "../../context/auth-context";
 import { loginHandler } from "../../services";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const navigate = useNavigate();
   const { userData, setUserData } = useAuth();
   const [isPasswdVisible, setIsPasswdVisible] = useState(false);
   const [loginFormData, setLoginFormData] = useState({
@@ -68,7 +70,8 @@ export const Login = () => {
           Fill dummy credentials
         </p>
         <p className="login-to-signup">
-          New to Keeper? <span>Sign Up</span>
+          New to Keeper?{" "}
+          <span onClick={() => navigate("/signup")}>Sign Up</span>
         </p>
       </form>
     </div>

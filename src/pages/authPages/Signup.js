@@ -2,8 +2,10 @@ import "./auth.css";
 import { useState } from "react";
 import { useAuth } from "../../context/auth-context";
 import { signupHandler } from "../../services";
+import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
+  const navigate = useNavigate();
   const [signupFormData, setSignupFormData] = useState({
     firstName: null,
     lastName: null,
@@ -125,6 +127,10 @@ export const Signup = () => {
           <p className="match-password">Passwords are not matching</p>
         )}
         <button className="login-btn">Sign Up</button>
+        <p className="login-to-signup">
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login</span>
+        </p>
       </form>
     </div>
   );
