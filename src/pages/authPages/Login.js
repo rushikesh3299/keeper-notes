@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useAuth();
+  const { userData, userDataSetter } = useAuth();
   const [isPasswdVisible, setIsPasswdVisible] = useState(false);
   const [loginFormData, setLoginFormData] = useState({
     email: "",
@@ -22,7 +22,7 @@ export const Login = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          loginHandler(loginFormData, userData, setUserData);
+          loginHandler(loginFormData, userData, userDataSetter);
         }}
         className="login-form"
       >

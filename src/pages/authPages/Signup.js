@@ -17,7 +17,7 @@ export const Signup = () => {
     passwd: false,
     cpasswd: false,
   });
-  const { userData, setUserData } = useAuth();
+  const { userData, userDataSetter } = useAuth();
 
   return (
     <div className="loginform-container">
@@ -29,7 +29,7 @@ export const Signup = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          signupHandler(signupFormData, userData, setUserData);
+          signupHandler(signupFormData, userData, userDataSetter);
         }}
         className="login-form"
       >

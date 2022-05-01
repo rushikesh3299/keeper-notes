@@ -11,8 +11,16 @@ const AuthProvider = ({ children }) => {
     isLoggedIn: isTokenSet,
     userToken: getToken,
   });
+
+  const userDataSetter = (isLoggedInVal, userTokenVal) => {
+    setUserData({
+      ...userData,
+      isLoggedIn: isLoggedInVal,
+      userToken: userTokenVal,
+    });
+  };
   return (
-    <AuthContext.Provider value={{ userData, setUserData }}>
+    <AuthContext.Provider value={{ userData, userDataSetter }}>
       {children}
     </AuthContext.Provider>
   );

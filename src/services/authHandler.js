@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const loginHandler = (loginFormData, userData, setUserData) => {
+export const loginHandler = (loginFormData, userData, userDataSetter) => {
   (async () => {
     try {
       const { data, status } = await axios.post("/api/auth/login", {
@@ -8,11 +8,7 @@ export const loginHandler = (loginFormData, userData, setUserData) => {
         password: loginFormData.password,
       });
       if (status === 200) {
-        setUserData({
-          ...userData,
-          isLoggedIn: true,
-          userToken: data.encodedToken,
-        });
+        userDataSetter(true, data.encodedToken);
         localStorage.setItem("token", data.encodedToken);
       }
     } catch (error) {
@@ -21,7 +17,7 @@ export const loginHandler = (loginFormData, userData, setUserData) => {
   })();
 };
 
-export const signupHandler = (signupFormData, userData, setUserData) => {
+export const signupHandler = (signupFormData, userData, userDataSetter) => {
   (async () => {
     try {
       const { data, status } = await axios.post("/api/auth/signup", {
@@ -31,11 +27,7 @@ export const signupHandler = (signupFormData, userData, setUserData) => {
         password: signupFormData.password,
       });
       if (status === 201) {
-        setUserData({
-          ...userData,
-          isLoggedIn: true,
-          userToken: data.encodedToken,
-        });
+        userDataSetter(true, data.encodedToken);
         localStorage.setItem("token", data.encodedToken);
       }
     } catch (error) {

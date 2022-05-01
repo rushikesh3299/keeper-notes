@@ -7,11 +7,10 @@ import { Signup, Login } from "./pages";
 
 const App = () => {
   const location = useLocation();
+  const noHeaderPaths = ["/", "/login", "/signup"];
   return (
     <div className="App">
-      {location.pathname !== "/login" &&
-        location.pathname !== "/signup" &&
-        location.pathname !== "/" && <Header />}
+      {!noHeaderPaths.includes(location.pathname) && <Header />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,9 +19,7 @@ const App = () => {
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
 
-      {location.pathname !== "/login" &&
-        location.pathname !== "/signup" &&
-        location.pathname !== "/" && <Footer />}
+      {!noHeaderPaths.includes(location.pathname) && <Footer />}
     </div>
   );
 };
