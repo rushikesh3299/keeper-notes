@@ -121,7 +121,7 @@ export const Signup = () => {
             )}
           </span>
         </div>
-        {signupFormData.password != signupFormData.confirmPassword && (
+        {signupFormData.password !== signupFormData.confirmPassword && (
           <p className="match-password">Passwords are not matching</p>
         )}
         <button className="login-btn">Sign Up</button>
