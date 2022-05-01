@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { loginHandler, signupHandler } from "../services";
 
 const AuthContext = createContext();
 const useAuth = () => useContext(AuthContext);
@@ -12,15 +13,32 @@ const AuthProvider = ({ children }) => {
     userToken: getToken,
   });
 
-  const userDataSetter = (isLoggedInVal, userTokenVal) => {
-    setUserData({
-      ...userData,
-      isLoggedIn: isLoggedInVal,
-      userToken: userTokenVal,
-    });
+  const loginService = async ({ email, password }) => {
+    const { data, status } = await loginHandler(email, password);
+    if (status === 200) {
+      localStorage.setItem("token", data.encodedToken);
+      setUserData({
+        ...userData,
+        isLoggedIn: true,
+        userToken: data.encodedToken,
+      });
+    }
   };
+
+  const signupService = async ({ firstName, lastName, email, password }) => {
+    const { data, status } = await signupHandler(email, password);
+    if (status === 201) {
+      localStorage.setItem("token", data.encodedToken);
+      setUserData({
+        ...userData,
+        isLoggedIn: true,
+        userToken: data.encodedToken,
+      });
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ userData, userDataSetter }}>
+    <AuthContext.Provider value={{ userData, loginService, signupService }}>
       {children}
     </AuthContext.Provider>
   );

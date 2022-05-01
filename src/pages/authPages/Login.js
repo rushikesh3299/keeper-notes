@@ -1,12 +1,11 @@
 import "./auth.css";
 import { useState } from "react";
 import { useAuth } from "../../context/auth-context";
-import { loginHandler } from "../../services";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const { userData, userDataSetter } = useAuth();
+  const { loginService } = useAuth();
   const [isPasswdVisible, setIsPasswdVisible] = useState(false);
   const [loginFormData, setLoginFormData] = useState({
     email: "",
@@ -22,7 +21,7 @@ export const Login = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          loginHandler(loginFormData, userData, userDataSetter);
+          loginService(loginFormData);
         }}
         className="login-form"
       >

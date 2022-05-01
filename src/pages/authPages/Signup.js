@@ -1,7 +1,6 @@
 import "./auth.css";
 import { useState } from "react";
 import { useAuth } from "../../context/auth-context";
-import { signupHandler } from "../../services";
 import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
@@ -17,7 +16,7 @@ export const Signup = () => {
     passwd: false,
     cpasswd: false,
   });
-  const { userData, userDataSetter } = useAuth();
+  const { signupService } = useAuth();
 
   return (
     <div className="loginform-container">
@@ -29,7 +28,7 @@ export const Signup = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          signupHandler(signupFormData, userData, userDataSetter);
+          signupService(signupFormData);
         }}
         className="login-form"
       >
