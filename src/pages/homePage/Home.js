@@ -1,6 +1,8 @@
 import "./home.css";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="homepage-container">
       <h1 className="homepage-title">
@@ -17,8 +19,12 @@ export const Home = () => {
         Manages your daily tasks & workflows in a modern way & boost your
         efficiency without any efforts.
       </p>
-      <button className="signup-btn">Join Now</button>
-      <p className="login-text">Already have an account?</p>
+      <button className="signup-btn" onClick={() => navigate("/signup")}>
+        Join Now
+      </button>
+      <p className="login-text" onClick={() => navigate("/login")}>
+        Already have an account?
+      </p>
     </div>
   );
 };
