@@ -9,20 +9,30 @@ export const Footer = () => {
           className="td-ul"
           href="https://rushikeshchougule.netlify.app/"
           target="_blank"
+          rel="noreferrer"
         >
           Rushikesh
         </a>
       </div>
       <div className="footer-icon">
-        <a href="https://github.com/rushikesh3299" target="_blank">
+        <a
+          href="https://github.com/rushikesh3299"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fab fa-github"></i>
         </a>
-        <a href="https://twitter.com/rushikesh3299" target="_blank">
+        <a
+          href="https://twitter.com/rushikesh3299"
+          target="_blank"
+          rel="noreferrer"
+        >
           <i className="fab fa-twitter"></i>
         </a>
         <a
           href="https://www.linkedin.com/in/rushikesh-chougule-621854192/"
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-linkedin-in"></i>
         </a>
