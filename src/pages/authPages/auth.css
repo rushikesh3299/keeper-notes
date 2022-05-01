@@ -1,0 +1,82 @@
+.loginform-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.loginform-img {
+  width: 15rem;
+}
+
+.login-form {
+  background-color: var(--color-white);
+  padding: 1rem;
+}
+
+.login-form-input {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+}
+
+.login-form-input input {
+  border: 1px solid var(--primary-color);
+}
+
+.login-btn {
+  background-color: var(--primary-color);
+  color: var(--text-color-white);
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 12rem;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.login-dummy-creds {
+  text-align: center;
+  cursor: pointer;
+  margin: 8px;
+  font-size: 0.8rem;
+}
+
+.login-dummy-creds:hover {
+  text-decoration: underline;
+}
+
+.login-to-signup {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+.login-to-signup span {
+  cursor: pointer;
+}
+
+.login-to-signup span:hover {
+  text-decoration: underline;
+}
+
+.login-form-input.password {
+  position: relative;
+}
+
+.passwd-visible {
+  cursor: pointer;
+  position: absolute;
+  top: 1.45rem;
+  right: 0.75rem;
+}
+
+.match-password {
+  color: var(--color-red);
+  font-size: 0.8rem;
+}
