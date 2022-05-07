@@ -13,6 +13,10 @@ const AuthProvider = ({ children }) => {
     userToken: getToken,
   });
 
+  const [showNav, setShowNav] = useState(false);
+
+  const [userName, setUserName] = useState({ firstName: "", lastName: "" });
+
   const loginService = async ({ email, password }) => {
     const { data, status } = await loginHandler(email, password);
     if (status === 200) {
@@ -21,6 +25,11 @@ const AuthProvider = ({ children }) => {
         ...userData,
         isLoggedIn: true,
         userToken: data.encodedToken,
+      });
+      setUserName({
+        ...userName,
+        firstName: data.foundUser.firstName,
+        lastName: data.foundUser.lastName,
       });
     }
   };
@@ -37,8 +46,22 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const showHideNavHandler = (show) => {
+    console.log(show);
+    show ? setShowNav(true) : setShowNav(false);
+  };
+
   return (
-    <AuthContext.Provider value={{ userData, loginService, signupService }}>
+    <AuthContext.Provider
+      value={{
+        userData,
+        loginService,
+        signupService,
+        userName,
+        showNav,
+        showHideNavHandler,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

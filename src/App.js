@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Mockman from "mockman-js";
 import { Home } from "./pages";
 import { Header, Footer } from "./components";
-import { Signup, Login } from "./pages";
+import { Signup, Login, NotePage } from "./pages";
 
 const App = () => {
   const location = useLocation();
@@ -16,6 +16,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/notepage" element={<NotePage />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
 

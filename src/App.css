@@ -17,6 +17,8 @@
   --color-white: #fff;
   --color-red: red;
   --primary-color: #f5ba13;
+  --shadow-color-light: #aaaaaa;
+  --shadow-color-dark: #5a5a5a;
 }
 
 html {
