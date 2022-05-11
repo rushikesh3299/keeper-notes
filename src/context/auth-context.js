@@ -1,13 +1,15 @@
 import { createContext, useContext, useState } from "react";
 import { loginHandler, signupHandler } from "../services";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 const useAuth = () => useContext(AuthContext);
 
 const getToken = localStorage.getItem("token");
 const isTokenSet = getToken ? true : false;
-
+console.log(getToken, isTokenSet);
 const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     isLoggedIn: isTokenSet,
     userToken: getToken,
@@ -31,6 +33,7 @@ const AuthProvider = ({ children }) => {
         firstName: data.foundUser.firstName,
         lastName: data.foundUser.lastName,
       });
+      navigate("/notepage");
     }
   };
 

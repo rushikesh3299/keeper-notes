@@ -1,6 +1,79 @@
 .notepage-container {
+  min-height: 50vh;
 }
 
 .note-section {
-  flex: 0 1 800px;
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 800px;
+}
+
+.note-title-box {
+  border: 1px solid var(--editor-border-color);
+  border-bottom: none;
+}
+
+.note-title-input {
+  width: calc(100% - 1rem);
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.note-operations i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.note-operations {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--editor-border-color);
+  border-top: none;
+}
+
+.note-operation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tooltip {
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tooltip .tooltiptext {
+  font-size: 0.8rem;
+  visibility: hidden;
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  padding: 2px 6px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.show-notes-container {
+  margin: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.note-container {
+  padding: 1rem;
+  flex: 0 0 14rem;
+  border: 1px solid var(--shadow-color-light);
+  box-shadow: 2px 2px 3px var(--shadow-color-light);
 }
